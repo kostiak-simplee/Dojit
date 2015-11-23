@@ -17,6 +17,6 @@ posts = Post.all
   )
 end
 
-puts "Seen finished"
+puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
