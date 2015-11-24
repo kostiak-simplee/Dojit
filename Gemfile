@@ -53,9 +53,7 @@ group :development do
 end
 
 gem 'bootstrap-sass'
-
 gem 'faker'
-
 gem 'devise'
-
 gem 'figaro'
+gem 'pundit'
