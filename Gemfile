@@ -57,5 +57,6 @@ gem 'faker'
 gem 'devise'
 gem 'figaro'
 gem 'pundit'
-
 gem 'wikipedia-client'
+
+gem 'redcarpet'
