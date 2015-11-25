@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151124094247) do
+ActiveRecord::Schema.define(version: 20151125091820) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -36,10 +36,12 @@ ActiveRecord::Schema.define(version: 20151124094247) do
 
   create_table "topics", force: :cascade do |t|
     t.string   "name"
-    t.boolean  "public",      default: true
+    t.boolean  "public",         default: true
     t.text     "description"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "wikipedia_text"
+    t.string   "wikipedia_link"
   end
 
   create_table "users", force: :cascade do |t|

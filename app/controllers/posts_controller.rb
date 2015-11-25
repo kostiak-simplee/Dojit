@@ -53,6 +53,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).repmit(:title, :body)
+    params.require(:post).permit(:title, :body)
   end
 end
