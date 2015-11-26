@@ -1,6 +1,8 @@
 require 'wikipedia'
+require 'pagination'
 
 class Topic < ActiveRecord::Base
+  include Pagination
   has_many :posts
 
   before_save do
