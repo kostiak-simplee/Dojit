@@ -6,13 +6,13 @@
 <div class="row">
   <div class="col-md-8">
     <p class="lead">
-      <%= markdown @topic.description %>
+      <%= @topic.description %>
     </p>
     <% @posts.each do |post| %>
       <div class="media">
         <div class="media-body">
           <h4 class="media-heading">
-            <%= link_to (markdown post.title), [@topic, post] %>
+            <%= link_to (post.markdown_title), [@topic, post] %>
           </h4>
           <small>
             submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %> <br />
