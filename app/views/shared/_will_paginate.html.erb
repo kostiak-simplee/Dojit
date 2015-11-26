@@ -1,0 +1,20 @@
+<div>
+  <div>
+    <ul class="list-inline text-center">
+      <li>
+        <%= "< Previous page" if page == 1 %>
+        <%= link_to "< Previous page", {:page => (page - 1)} unless page == 1%>
+      </li>
+      <% pages.times do |page_iter| %>
+        <li>
+          <%= page_iter + 1 if (page_iter + 1) == params[:page].to_i %>
+          <%= link_to (page_iter + 1), {:page => (page_iter + 1)} unless (page_iter + 1) == params[:page].to_i %>
+        </li>
+      <% end %>
+      <li>
+        <%= "Next page >" if page == pages %>
+        <%= link_to "Next page >", {:page => (page + 1)} unless page == pages %>
+      </li>
+    </ul>
+  </div>
+</div>

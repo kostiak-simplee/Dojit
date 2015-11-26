@@ -1,4 +1,8 @@
+require 'pagination'
+
 class Post < ActiveRecord::Base
+  include Pagination
+
   has_many :comments
   belongs_to :user
   belongs_to :topic
