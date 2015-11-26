@@ -58,5 +58,6 @@ gem 'devise'
 gem 'figaro'
 gem 'pundit'
 gem 'wikipedia-client'
-
 gem 'redcarpet'
+
+gem 'will_paginate', '~> 3.0.5'
