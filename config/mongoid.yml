@@ -4,10 +4,11 @@ production:
   clients:
     default:
       database: <%= uri.path.sub('/','') %>
-      username: <%= uri.user %>
-      password: <%= uri.password %>
       hosts:
         - <%= uri.host %>:<%= uri.port %>
+      options:
+        username: <%= uri.user %>
+        password: <%= uri.password %>
 <% end %>
 development:
   # Configure available database clients. (required)
