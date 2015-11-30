@@ -1,8 +1,11 @@
 <h1><%= markdown @post.title %></h1>
+<small>submitted <%= time_ago_in_words(@post.created_at) %> by <%= @post.user.name %></small>
 
 <div class="row">
   <div class="col-md-8">
     <p><%= markdown @post.body %></p>
+    <%= render @post.comments %>
+    <%= render partial: 'comments/form', locals: { topic: @topic, post: @post } %>
   </div>
   <div class="col-md-4">
     <% if policy(@post).edit? %>
