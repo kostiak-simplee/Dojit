@@ -4,6 +4,9 @@ production:
       database: heroku_c16jrxl1
       hosts:
         - <%= ENV['MONGOLAB_URI'] %>
+      options:
+        user: <%= ENV['MONGOLAB_USERNAME'] %>
+        password: <%= ENV['MONGOLAB_PASSWORD'] %>
 development:
   # Configure available database clients. (required)
   clients:
