@@ -1,7 +1,7 @@
 production:
   clients:
     default:
-      database: dojit_production
+      database: heroku_c16jrxl1
       hosts:
         - <%= ENV['MONGOLAB_URI'] %>
 development:
