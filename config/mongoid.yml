@@ -7,7 +7,7 @@ production:
       hosts:
         - <%= uri.host %>:<%= uri.port %>
       options:
-        username: <%= uri.user %>
+        user: <%= uri.user %>
         password: <%= uri.password %>
 <% end %>
 development:
