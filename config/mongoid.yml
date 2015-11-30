@@ -1,12 +1,14 @@
+<% if ENV['MONGOLAB_URI'] %>
+  <% uri = URI.parse(ENV['MONGOLAB_URI']) %>
 production:
   clients:
     default:
-      database: heroku_c16jrxl1
+      database: <%= uri.path.sub('/','') %>
+      username: <%= uri.user %>
+      password: <%= uri.password %>
       hosts:
-        - <%= ENV['MONGOLAB_URI'] %>
-      options:
-        user: <%= ENV['MONGOLAB_USERNAME'] %>
-        password: <%= ENV['MONGOLAB_PASSWORD'] %>
+        - <%= uri.host %>:<%= uri.port %>
+<% end %>
 development:
   # Configure available database clients. (required)
   clients:
