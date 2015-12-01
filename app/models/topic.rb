@@ -1,7 +1,7 @@
 require 'wikipedia'
 
 class Topic < ActiveRecord::Base
-  has_many :posts
+  has_many :posts, dependent: :destroy
 
   before_save do
     begin
