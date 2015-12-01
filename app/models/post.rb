@@ -9,6 +9,10 @@ class Post < ActiveRecord::Base
   validates :topic, presence: true
   validates :user, presence: true
 
+  before_destroy do |post|
+    post.comments.destroy
+  end
+
   def comments
     Comment.where(post_id: self.id)
   end
