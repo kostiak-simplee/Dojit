@@ -1,0 +1,10 @@
+
+<% if current_user %>
+  <div class="pull-left vote-arrows">
+    <%= render partial: "votes/up_vote", locals: {post: post} %>
+    <div><strong><%= post.points %></strong></div>
+    <%= render partial: "votes/down_vote", locals: {post: post} %>
+  </div>
+<% else %>
+  <div class="pull-left"><strong><%= post.points%></strong></div>
+<% end %>

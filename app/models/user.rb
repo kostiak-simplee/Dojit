@@ -17,4 +17,16 @@ class User < ActiveRecord::Base
   def avatar?
     false
   end
+
+  def up_voted?(post)
+    $redis.sismember("#{post.id}_up", id)
+  end
+
+  def down_voted?(post)
+    $redis.sismember("#{post.id}_down", id)
+  end
+
+  def voted?(post)
+    up_voted?(post) || down_voted?(post)
+  end
 end

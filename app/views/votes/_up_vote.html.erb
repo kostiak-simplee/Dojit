@@ -1,0 +1,7 @@
+<div>
+  <% if current_user.up_voted?(post) %>
+    <%= link_to " ", post_remove_up_vote_path(post), class: 'glyphicon glyphicon-chevron-up voted', method: :post %>
+  <% else %>
+    <%= link_to " ", post_up_vote_path(post), class: 'glyphicon glyphicon-chevron-up', method: :post %>
+  <% end %>
+</div>
