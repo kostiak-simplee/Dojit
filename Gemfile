@@ -65,5 +65,6 @@ gem 'wikipedia-client'
 gem 'redcarpet'
 gem 'will_paginate', '~> 3.0.5'
 gem 'mongoid', '~> 5.0.0'
-
 gem 'redis', '~>3.2'
+
+gem 'database_cleaner'
