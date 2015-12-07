@@ -3,6 +3,10 @@ require 'wikipedia'
 class Topic < ActiveRecord::Base
   has_many :posts, dependent: :destroy
 
+  scope :publicaly_viewable, -> { where(public: true) }
+  scope :privately_viewable, -> { all }
+  scope :visible_to, -> (user){ user ? privately_viewable : publicaly_viewable }
+
   before_save do
     begin
       wiki_obj = Wikipedia.find(self.name)
