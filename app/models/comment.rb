@@ -23,8 +23,13 @@ class Comment
 
   def send_favorite_emails
     post.favorites.each do |user_id|
-      p "sending to #{user_id}"
-      FavoriteMailer.new_comment(User.find(user_id), post, self).deliver
+      if should_recieve_update_for?(user_id)
+        FavoriteMailer.new_comment(User.find(user_id), post, self).deliver
+      end
     end
+  end
+
+  def should_recieve_update_for?(user_id)
+    user_id != self.user_id && User.find(user_id).email_favorites?
   end
 end
