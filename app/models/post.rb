@@ -50,6 +50,10 @@ class Post < ActiveRecord::Base
     update_attribute(:rank, new_rank)
   end
 
+  def favorites
+    Favorite.favorites(id)
+  end
+
   private
 
   def create_vote

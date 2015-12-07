@@ -29,4 +29,12 @@ class User < ActiveRecord::Base
   def voted?(post)
     up_voted?(post) || down_voted?(post)
   end
+
+  def favorite(post_id)
+    Favorite.create(post_id, id)
+  end
+
+  def favorited?(post_id)
+    Favorite.favorited?(post_id, id)
+  end
 end

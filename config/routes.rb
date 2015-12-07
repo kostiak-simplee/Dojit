@@ -15,6 +15,9 @@ Rails.application.routes.draw do
     post '/remove-down-vote' => 'votes#remove_down_vote', as: :remove_down_vote
   end
 
+  post 'favorites/:post_id' => 'favorites#create'
+  delete 'favorites/:post_id' => 'favorites#destroy', as: :favorites
+
   get 'about' => 'welcome#about'
   get 'contact' => 'welcome#contact'
 

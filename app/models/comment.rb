@@ -16,4 +16,15 @@ class Comment
   def user
     User.find(self.user_id)
   end
+
+  after_create :send_favorite_emails
+
+  private
+
+  def send_favorite_emails
+    post.favorites.each do |user_id|
+      p "sending to #{user_id}"
+      FavoriteMailer.new_comment(User.find(user_id), post, self).deliver
+    end
+  end
 end
